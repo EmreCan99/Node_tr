@@ -1,0 +1,16 @@
+
+.container {
+    display: flex;
+    background-color: aquamarine;
+    margin: 5%;
+    gap:  10px;
+
+}
+
+.container .two {
+    background-color: bisque;
+}
+
+.container div{
+    padding: 5%;
+}
