@@ -14,25 +14,23 @@ app.use(morgan(':method :url :status :date[clf]'));
 const port = 3000;
 var userIdCorrect = false;
 
-// function to check if the name correct
-function check_name(req, res, next){
-    if (req.body["ad"] === "Cndn"){
-        userIdCorrect = true;
-    };
-    next();
-}
+
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+    res.render("index.ejs");
 })
 
+
 // Form POST
-app.post("/submit", check_name, (req, res) => {
-    console.log(req.body);
-    if (userIdCorrect){
-        console.log("***Isim Doğru");
-        res.redirect("/next");
+app.post("/submit", (req, res) => {
+    const fname = req.body["fname"];
+    const lname = req.body["lname"];    
+    if (fname && lname){
+        res.render("submit.ejs", {fname: fname, lname: lname});
+    } else {
+        res.render("index.ejs", {retry_message: "İsim girmediniz"});
     }
+       
 })
 
 // Correct answer html
