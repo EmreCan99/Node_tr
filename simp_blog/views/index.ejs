@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Simple Blog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>My Simple Blog</h1>
+      <a href="/new-post" class="btn btn-primary">Write New Post</a>
+    </header>
+
+    <main>
+      <% if (posts.length === 0) { %>
+        <div class="empty-state">
+          <p>No posts yet. Start writing your first post!</p>
+        </div>
+      <% } else { %>
+        <div class="posts-grid">
+          <% posts.forEach(post => { %>
+            <article class="post-card">
+              <div class="post-header">
+                <h2><%= post.title %></h2>
+                <span class="post-date"><%= post.date %></span>
+              </div>
+              <div class="post-content">
+                <%= post.content %>
+              </div>
+              <button class="btn btn-delete" onclick="deletePost(<%= post.id %>)">Delete</button>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </main>
+  </div>
+
+  <script>
+    async function deletePost(id) {
+      if (confirm('Are you sure you want to delete this post?')) {
+        await fetch(`/posts/${id}`, { method: 'DELETE' });
+        location.reload();
+      }
+    }
+  </script>
+</body>
+</html>
