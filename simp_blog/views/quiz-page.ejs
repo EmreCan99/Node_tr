@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Ülkeler</h1>
+    </header>
+
+    <main>
+      <form action="/quiz-submit" method="POST" class="quiz-form">
+        <div class="form-group">
+          <% if(country){  %>
+            <label for="question-country"> <%= locals.country %> </label>
+          <% } else {%>
+           <p> The country item not found!</p>
+          <% } %>
+          <input 
+            type="text" 
+            id="answer" 
+            name="answer" 
+            required 
+          >
+        </div>
+    </main>
+  </div>
+
+  <script>
+    
+  </script>
+</body>
+</html>
