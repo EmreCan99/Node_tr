@@ -1,9 +1,18 @@
 import express from 'express';
+import pg from 'pg';
+import fs from 'fs/promises';
+
+
 const app = express();
-const PORT = 3000;
+const PORT =  process.env.PORT || 3000;
+
+
+// Add the JSON file for the custom API
+const items = JSON.parse(
+  await fs.readFile(new URL('./data/data.json', import.meta.url))
+);
 
 // Database ------
-import pg from 'pg';
 const db = new pg.Client({
   user: "postgres",
   host: "localhost",
@@ -17,8 +26,8 @@ db.query('SELECT country FROM capitals LIMIT 5;', (err, res) => {
   if(err){
     console.log("Error during the SQL query; ", err.stack);
   } else {
-    console.log("Query succesful");
-    console.log(res.rows);
+    // console.log("Query succesful");
+    // console.log(res.rows);
     countries = res.rows;
     ;
   }
@@ -73,4 +82,19 @@ app.delete('/posts/:id', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+});
+
+// Custom API
+
+app.get("/random", (req,res) => {
+  var rand = Math.floor(Math.random() * (items.length));
+  res.json(items[rand]);
+});
+
+app.get("/api/:id", (req,res) => {
+  const id = req.params.id;
+  console.log(parseInt(id));
+  var foundItem = items.find(item => item.id === parseInt(id));
+
+  res.json(foundItem);
 });

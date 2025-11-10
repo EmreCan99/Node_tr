@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "valueA": 100,
+    "valueB": "Alpha"
+  },
+  {
+    "id": 2,
+    "valueA": 250,
+    "valueB": "Beta"
+  },
+  {
+    "id": 3,
+    "valueA": 400,
+    "valueB": "Gamma"
+  },
+  {
+    "id": 4,
+    "valueA": 150,
+    "valueB": "Delta"
+  }
+]
