@@ -14,7 +14,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setStatus(data.status)
-        console.log("the backend is: ", data.status)
+        console.log("The API Path is: ", API_URL)
       })
       .catch((error) => {
         setStatus("not reachable")
