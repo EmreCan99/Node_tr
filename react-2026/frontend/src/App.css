@@ -3,3 +3,22 @@ body {
   margin: 20px;
 }
 
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  min-height: 40vh;
+  background-color:antiquewhite;
+  border-radius: 10%;
+  padding: 40px;
+}
+
+form {
+  justify-items: end;
+}
+
+/* form > input {} */

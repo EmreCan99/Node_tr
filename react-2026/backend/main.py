@@ -15,6 +15,16 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def welcome():
+   return {
+        "message": "Doğru geldin"
+    }
+
+
+
+
+
 @app.get("/api/check")
 def check():
    return {

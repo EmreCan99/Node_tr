@@ -28,8 +28,23 @@ function App() {
 
   return (
     <>
-      <h1>This is the first title</h1>
-      <p>The backend is {status}</p>
+
+      <main className='page'>
+        <section className='card'>
+        <h1>This is the first title</h1>
+        <p>The backend is {status}</p>
+
+
+        <form>
+          <input className="input-box" type="text" name="data" />
+
+        </form>
+
+
+
+        </section>
+      </main>
+      
     </>
   )
 }
