@@ -1,7 +1,41 @@
 body {
   background-color: rgba(192, 192, 192, 0.057);
-  margin: 20px;
+  margin: 0;
+  padding: 0;
 }
+
+header {
+  background-color: #f9f3eb;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  filter: drop-shadow(0px 1px 4px #00000050)
+}
+
+
+/* Not ready yet Nav items */
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+
+/* --- The Center Card --- */
 
 .page {
   min-height: 100vh;
@@ -15,10 +49,11 @@ body {
   background-color:antiquewhite;
   border-radius: 10%;
   padding: 40px;
+  filter: drop-shadow(0px 6px 5px #0000001d)
+
 }
 
 form {
   justify-items: end;
 }
 
-/* form > input {} */

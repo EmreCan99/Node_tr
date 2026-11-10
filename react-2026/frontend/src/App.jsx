@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
+import Navbar from "./components/Navbar.jsx"
+import Landing from "./pages/Landing.jsx"
+import Experiment from "./pages/Experiment.jsx"
+
+
+
 function App() {
   
   const API_URL = import.meta.env.VITE_API_URL;
 
   const [status, setStatus] = useState("Loading...")
+  const [whichPage, setWhichPage] = useState("Landing")
 
 
 
@@ -18,32 +25,29 @@ function App() {
       })
       .catch((error) => {
         setStatus("not reachable")
-        console.error("it doesn't work: ", error)
+        console.error("=> Api bağlantısı Yok ", error)
       })
   }, [])
 
 
 
 
-
   return (
     <>
+      <Navbar setWhichPage={setWhichPage} />
 
-      <main className='page'>
-        <section className='card'>
-        <h1>This is the first title</h1>
-        <p>The backend is {status}</p>
+      {  // Load the Landing page
+      whichPage === "Landing" ? (
+        <Landing status={status}/> 
 
+        // Load the Experiment page
+      ) : whichPage === "Experiment" ? (
+        <Experiment />
 
-        <form>
-          <input className="input-box" type="text" name="data" />
+      ) : null }
+      
 
-        </form>
-
-
-
-        </section>
-      </main>
+      
       
     </>
   )
