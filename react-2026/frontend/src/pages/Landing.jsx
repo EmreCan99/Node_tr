@@ -10,7 +10,7 @@ export default function Landing(props) {
 
                 <form className="form-search">
                     <input className="input-search-text" type="text" name="search-query" />
-                    <button className="btn-search" >Search</button>
+                    <button className="btn-search" onClick={(e) => e.preventDefault()} >Search</button>
                 </form>
 
         </section>
