@@ -1,11 +1,19 @@
+/* ==========================================
+    BASE STYLES (Shared across all devices)
+   Default layout target: Mobile (< 768px)
+   ========================================== */
+
 body {
   background-color: rgba(192, 192, 192, 0.057);
   margin: 0;
   padding: 0;
+  color: #032630;
 }
 
+/* --- Navigation Bar --- */
+
 header {
-  background-color: #f9f3eb;
+  background-color: #9FE6F9;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -15,7 +23,7 @@ header {
 }
 
 
-/* Not ready yet Nav items */
+/* Nav Items */
 
 nav ul {
   display: flex;
@@ -45,15 +53,89 @@ nav ul {
 }
 
 .card {
-  min-height: 40vh;
-  background-color:antiquewhite;
+  min-height: 50vh;
+  background-color: #CFF2FC;
   border-radius: 10%;
-  padding: 40px;
+  padding: 10px 40px;
   filter: drop-shadow(0px 6px 5px #0000001d)
+}
+
+.card h1 {
+  text-align: center;
+}
+
+.form-search {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-search .input-search-text {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+
+.form-search .btn-search {
+  padding: 8px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+
+  background-color: #087391; 
+  border: none;
+
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+
+
 
 }
 
-form {
-  justify-items: end;
+/* Btn Hover & Active States */
+.form-search .btn-search:hover {
+  background-color: #064c60ad;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.form-search .btn-search:active {
+  background-color: #064D60;
+  box-shadow: none;
+}
+
+.form-search .btn-search:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+    DESKTOP OVERRIDES (768px and wider)
+   ========================================== */
+
+
+
+
+
+/* ----- */
+
+
+
+{
+  "Btn frosted-blue": {
+    "50": "#e7f9fe",
+    "100": "#cff2fc",
+    "200": "#9fe6f9",
+    "300": "#6ed9f7",
+    "400": "#3eccf4",
+    "500": "#0ec0f1",
+    "600": "#0b99c1",
+    "700": "#087391",
+    "800": "#064d60",
+    "900": "#032630",
+    "950": "#021b22"
+  }
 }
 
