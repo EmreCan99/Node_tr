@@ -19,7 +19,7 @@ export default function Navbar(props) {
                     </li>
                 </ul>
             </nav>
-            <LanguageSelector setLanguageSelect={props.setLanguageSelect}/>
+            <LanguageSelector setLanguageSelect={props.setLanguageSelect} languageSelect={props.languageSelect}/>
         </header>
     )
 }
