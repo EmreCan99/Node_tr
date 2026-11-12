@@ -13,8 +13,7 @@ function App() {
 
   const [status, setStatus] = useState("Loading...")
   const [whichPage, setWhichPage] = useState("Landing")
-
-
+  const [languageSelect, setLanguageSelect] = useState("english")
 
   useEffect(() => {
     fetch(`${API_URL}/api/check`)
@@ -24,7 +23,7 @@ function App() {
         console.log("The API Path is: ", API_URL)
       })
       .catch((error) => {
-        setStatus("not reachable")
+        setStatus("error")
         console.error("=> Api bağlantısı Yok ", error)
       })
   }, [])
@@ -34,15 +33,15 @@ function App() {
 
   return (
     <>
-      <Navbar setWhichPage={setWhichPage} />
+      <Navbar setWhichPage={setWhichPage} setLanguageSelect={setLanguageSelect} languageSelect={languageSelect} />
 
       {  // Load the Landing page
       whichPage === "Landing" ? (
-        <Landing status={status}/> 
+        <Landing status={status} languageSelect={languageSelect} /> 
 
         // Load the Experiment page
       ) : whichPage === "Experiment" ? (
-        <Experiment />
+        <Experiment languageSelect={languageSelect} />
 
       ) : null }
       
