@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import './styles/tokens.css'
 
 import Navbar from "./components/Navbar.jsx"
 import Landing from "./pages/Landing.jsx"
@@ -14,6 +15,9 @@ function App() {
   const [status, setStatus] = useState("Loading...")
   const [whichPage, setWhichPage] = useState("Landing")
   const [languageSelect, setLanguageSelect] = useState("english")
+
+  // to use later in a fetch
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch(`${API_URL}/api/check`)
@@ -32,7 +36,7 @@ function App() {
 
 
   return (
-    <>
+    <div className='app-shell'>
       <Navbar setWhichPage={setWhichPage} setLanguageSelect={setLanguageSelect} languageSelect={languageSelect} />
 
       {  // Load the Landing page
@@ -44,11 +48,9 @@ function App() {
         <Experiment languageSelect={languageSelect} />
 
       ) : null }
+  
       
-
-      
-      
-    </>
+    </div>
   )
 }
 

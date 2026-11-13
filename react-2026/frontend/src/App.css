@@ -1,4 +1,69 @@
 /* ==========================================
+    Later to be migrated to ./styles/Tokens.css
+   ========================================== */
+
+/* * { outline: 1px solid red; } */
+
+:root {
+  /* Colors */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-accent-subtle: #cff2fc;
+  --color-primary: #087391;        /* Search btn */
+  --color-secondary: #9FE6F9;      /* Header */
+  --color-tertiary: #ffffff;
+  --color-primary-hover: #064d60;
+  --text-main: #032630;
+  --text-muted: #475569;
+  --border-subtle: #e2e8f0;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  /* Type: clamp(min, preferred, max) scales smoothly with the screen */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-xl: clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, monospace; /* Useful for phonetic spellings or API debug info */
+
+  --text-xs: 0.75rem;                                    /* 12px - status badges, captions */
+  --text-sm: 0.875rem;                                   /* 14px - secondary text, labels */
+  --text-base: 1rem;                                     /* 16px - body & inputs (prevents iOS auto-zoom!) */
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);    /* 18px–22px - word headings / card titles */
+  --text-xl: clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem);    /* 28px–44px - page hero title */
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+
+  /* Interactive & Motion */
+  --focus-ring: 0 0 0 3px rgba(8, 115, 145, 0.25); /* Accessible keyboard focus glow matching --color-primary */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* Layering (Z-Index) */
+  --z-base: 1;
+  --z-sticky: 100;   /* Sticky header or sidebar */
+  --z-dropdown: 200; /* Search autocomplete or language selector */
+  --z-modal: 300;
+}
+
+
+/* ==========================================
     BASE STYLES (Shared across all devices)
    Default layout target: Mobile (< 768px)
    ========================================== */
@@ -8,29 +73,35 @@
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #CFF2FC;
-  --secondary--color: #087391;
-  --primary--text--color: #032630;
-}
+
 body {
-  background-color: rgba(192, 192, 192, 0.057);
   margin: 0;
   padding: 0;
   max-width: 100vw;
-  color: var(--primary--text--color);
+  color: var(--text-main);
   overflow-x: hidden;
 }
+
+/* --- App --- */
+.app-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  min-height: 100dvh; /* dvh handles mobile browser address bars properly */
+
+}
+
+
 
 /* --- Navigation Bar --- */
 
 header {
-  background-color: #9FE6F9;
+  background-color: var(--color-secondary);
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 10px 24px;
   filter: drop-shadow(0px 1px 4px #00000050);
   flex-wrap: wrap;
 }
@@ -40,15 +111,11 @@ header {
   font: inherit;          /* match the rest of the page's font */
   color: inherit;
   background-color: rgb(228, 228, 228);  
-  border: 2px solid #fdfcfc42 #ff2e2e42;  
+  border: 2px solid #ff2e2e42;  
   border-radius: 6px;
   cursor: pointer;
 }
 
-.language-select:focus-visible {
-  outline: 2px solid #93c5fd;
-  outline-offset: 2px;
-}
 
 /* Nav Items */
 
@@ -72,22 +139,21 @@ nav ul {
 
 /* --- Landing Page --- */
 
-.landing {
-  min-height: 100vh;
+.main-landing {
   width: 100%;
-  padding: 16px; /* Touch-safe padding on edges */
+  padding: (--space-4);     /* Touch-safe padding on edges */
+  padding-top: var(--space-8);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .card {
   min-height: 50vh;
   max-width: 90lvw;
-  background-color: var(--primary-color);
-  border-radius: 10%;
+/*   background-color: #f2eeee; */
   padding: 10px 20px;
-  filter: drop-shadow(0px 6px 5px #0000001d)
 }
 
 .card h1 {
@@ -96,37 +162,44 @@ nav ul {
 
 .form-search {
   display: flex;
-  justify-content: baseline;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap; /* Prevents items from pushing outside on small screens */
 }
 
 .form-search .input-search-text {
-  flex: 1 1 200px; /* Grows to fit, but wraps cleanly if screen is under 200px */
-  min-width: 0;    /* Crucial: keeps text inputs from overflowing flex containers */
-
+  flex: 1 1 200px; 
+  min-width: 0;   
   padding: 8px 12px;
-  font-size: 14px;
-  }
+  font-size: var(--text-sm);
+  border-width: 0.5px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-app);
+
+}
+
+.form-search .input-search-text:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
 
 
 .form-search .btn-search {
   flex: 0 0 auto;
   padding: 8px 16px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.01em;
   cursor: pointer;
 
-  background-color: var(--secondary--color); 
-  border: none;
+  background-color: var(--color-primary); 
+  border-width: 0.5px;
+  border-radius: var(--radius-sm);
 
   box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.15s ease, box-shadow 0.15s ease;
-
-
 }
 
 /* Btn Hover & Active States */
@@ -140,10 +213,12 @@ nav ul {
   box-shadow: none;
 }
 
-.form-search .btn-search:focus-visible {
-  outline: 2px solid #93c5fd;
-  outline-offset: 2px;
+.form-search .btn-search:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
+
+
 
 /* ==========================================
     DESKTOP OVERRIDES (768px and wider)

@@ -6,21 +6,21 @@ export default function Landing({status, languageSelect}) {
     
     const STATUS_LABELS = {
         loading: {
-            english: "Loading...",
-            turkish: "Yükleniyor..."
+            english: "🟡 Loading...",
+            turkish: "🟡 Yükleniyor..."
         },
         alive: {
-            english: "Server is Alive",
-            turkish: "Sunucuya Bağlanıldı"
+            english: "🟢 Server is Alive",
+            turkish: "🟢 Sunucuya Bağlanıldı"
         },
         error: {
-            english: "Server Not Reachable",
-            turkish: "Sunucuya Bağlanılamadı"
+            english: "🔴 Server Not Reachable",
+            turkish: "🔴 Sunucuya Bağlanılamadı"
         }
     }
 
     return (
-        <main className='landing'>
+        <main className='main-landing'>
             <section className='card'>
                 <h1>{languageSelect === "english" ? "Dictionator" : "Sözlük"}</h1>
                 
