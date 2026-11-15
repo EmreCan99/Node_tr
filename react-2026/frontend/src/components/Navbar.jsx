@@ -3,11 +3,12 @@ import LanguageSelector from "./LanguageSelector"
 
 export default function Navbar(props) {
     return (
-        <header>
+        <header className="bg-[#9fe6f9] p-2 flex justify-between content-center flex-wrap gap-4 
+                        drop-shadow-[0px_1px_5px] drop-shadow-gray-300">
             <span> </span>
-            <nav>
-                <ul>
-                    <li className="nav-item">
+            <nav data-element="navbar">
+                <ul className="flex flex-wrap gap-4 ">
+                    <li data-element="nav-item" className="">
                         <button type="button" onClick={() => props.setWhichPage("Landing")} >
                             {props.languageSelect === "english" ? "Landing" : "Başlangıç"}
                         </button>

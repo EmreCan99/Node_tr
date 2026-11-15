@@ -36,7 +36,7 @@ function App() {
 
 
   return (
-    <div className='app-shell'>
+    <div data-app="app-shell" className='min-h-dvh grid grid-cols-1 grid-rows-[auto_1fr]'>
       <Navbar setWhichPage={setWhichPage} setLanguageSelect={setLanguageSelect} languageSelect={languageSelect} />
 
       {  // Load the Landing page
