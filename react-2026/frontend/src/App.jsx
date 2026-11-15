@@ -4,7 +4,7 @@ import './styles/tokens.css'
 
 import Navbar from "./components/Navbar.jsx"
 import Landing from "./pages/Landing.jsx"
-import Experiment from "./pages/Experiment.jsx"
+import Discover from "./pages/Discover.jsx"
 
 
 
@@ -38,16 +38,17 @@ function App() {
 
 
   return (
-    <div data-app="app-shell" className='min-h-dvh grid grid-cols-1 grid-rows-[auto_1fr]'>
-      <Navbar setWhichPage={setWhichPage} setLanguageSelect={setLanguageSelect} languageSelect={languageSelect} />
+    <div data-app="app-shell" className='min-h-dvh grid grid-cols-1 grid-rows-[auto_1fr] bg-[#faf6ee]'>
+
+      <Navbar setWhichPage={setWhichPage} setLanguageSelect={setLanguageSelect} languageSelect={languageSelect} whichPage={whichPage} />
 
       {  // Load the Landing page
       whichPage === "Landing" ? (
         <Landing status={status} languageSelect={languageSelect} /> 
 
-        // Load the Experiment page
-      ) : whichPage === "Experiment" ? (
-        <Experiment languageSelect={languageSelect} />
+        // Load the Discover page
+      ) : whichPage === "Discover" ? (
+        <Discover languageSelect={languageSelect} />
 
       ) : null }
   

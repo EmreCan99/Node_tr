@@ -1,8 +1,8 @@
-export default function Experiment() {
+export default function Discover() {
 
 
     return (
-        <main className='experiment'>
+        <main className='discover'>
             <section >
                 <h1>Deneme Sayfası</h1>
                 

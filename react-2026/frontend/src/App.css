@@ -7,6 +7,9 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-family: serif;
+}
 
 body {
   margin: 0;
@@ -16,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-* :focus {
+/* * :focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(8, 115, 145, 0.25);
-}
+  box-shadow: 0 0 0 1px #8e062350;
+} */

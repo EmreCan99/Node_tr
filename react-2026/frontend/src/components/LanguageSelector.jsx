@@ -5,8 +5,8 @@ export default function LanguageSelector(props) {
         <select 
             data-component = "language-select"
             data-lang={props.languageSelect === "turkish"}
-            className="bg-gray-50 p-2 rounded-lg hover:bg-gray-100 active:bg-gray-300 
-                data-[lang=true]:bg-red-700 data-[lang=true]:text-white" 
+            className="justify-self-end bg-[#ffddb8] text-[#754800] border-[1px] border-gray-200 p-2 rounded-lg hover:bg-gray-100 active:bg-gray-300 
+                data-[lang=true]:bg-[#68000a] data-[lang=true]:text-white" 
             name="languageSelection" 
             id="languageSelection"
             onChange={(e) => props.setLanguageSelect(e.target.value)}

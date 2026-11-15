@@ -1,0 +1,88 @@
+Here is the comprehensive Tailwind CSS structure for the overall page wrapper / master layout container that encloses the header, search area, content cards, and bottom bar, maintaining the warm parchment theme and proper spacing across both mobile and desktop:
+Master Page Container & Layout Architecture
+
+<!-- Outer App Root / Viewport Container -->
+<!-- 
+  - min-h-screen & min-h-dvh: full dynamic viewport height
+  - bg-[#FFF8F6]: warm light parchment base color
+  - text-[#2B1B17]: deep warm charcoal default text
+  - font-serif: literary serif base (EB Garamond)
+  - antialiased: crisp typography rendering
+  - selection:...: custom crimson accent highlight
+-->
+<div class="min-h-screen min-h-[100dvh] bg-[#FFF8F6] text-[#2B1B17] font-serif antialiased selection:bg-[#8B181B]/15 selection:text-[#8B181B] flex flex-col justify-between relative overflow-x-hidden">
+
+  <!-- ================= TOP SECTION WRAPPER ================= -->
+  <!-- Holds the sticky header, search bar, and optional quick-filter chips -->
+  <div class="w-full shrink-0 flex flex-col">
+    
+    <!-- 1. Top Navbar Header Container -->
+    <!-- Sticky, high z-index, backdrop blur on scroll -->
+    <header class="sticky top-0 z-40 w-full bg-[#FFF8F6]/95 backdrop-blur-md border-b border-[#E1D8D6]/60 transition-all duration-200">
+      <div class="max-w-4xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between gap-3">
+        <!-- Brand, Nav items, and Action Icons go here -->
+      </div>
+    </header>
+
+    <!-- 2. Search & Contextual Header Ribbon Container -->
+    <!-- Constrained max-width container with vertical rhythm -->
+    <section class="w-full max-w-2xl mx-auto px-4 pt-3 pb-2 sm:pt-6 sm:pb-3 flex flex-col gap-2.5">
+      <!-- Search Input Wrapper -->
+      <div class="relative w-full">
+        <!-- Search input & icon -->
+      </div>
+
+      <!-- Quick Filter Chips / Su Yolu Divider Wrapper -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 text-xs text-[#5B4A42]">
+        <!-- Chips (e.g. gönül, yâren, vuslat) -->
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- ================= MAIN CONTENT WRAPPER ================= -->
+  <!-- 
+    - flex-1: grows to fill remaining height, pushing bottom bar/footer down
+    - max-w-2xl mx-auto: perfectly matched editorial reading width
+    - px-4: edge gutters on mobile
+    - pb-24 sm:pb-12: extra bottom padding on mobile so content is never hidden behind the fixed bottom bar
+  -->
+  <main class="flex-1 w-full max-w-2xl mx-auto px-4 py-2 sm:py-6 flex flex-col gap-4 sm:gap-6 pb-24 sm:pb-12">
+    
+    <!-- Word Result Card -->
+    <!-- Etymology / Kökenbilim Card -->
+    <!-- Günün Kelimesi or Poem Module -->
+
+  </main>
+
+
+  <!-- ================= FOOTER / BOTTOM NAV WRAPPERS ================= -->
+
+  <!-- A. Desktop Footer (Hidden on mobile) -->
+  <footer class="hidden md:block w-full border-t border-[#E1D8D6]/60 bg-[#FAF9F4] py-8 text-center text-xs text-[#8C7A72]">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span>Karagöz Hayal Perdesi &bull; Küşteri Meydanı Külliyatı</span>
+      <span>TDK & Kadim Divan Kriterleri</span>
+    </div>
+  </footer>
+
+  <!-- B. Fixed Mobile Bottom Bar Container -->
+  <!-- 
+    - md:hidden: strictly mobile
+    - fixed bottom-0 left-0 right-0: anchored to handheld thumb zone
+    - pb-[env(safe-area-inset-bottom,0px)]: prevents overlap with iOS home swipe bar
+  -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FFF8F6]/95 backdrop-blur-md border-t border-[#E1D8D6] pb-[env(safe-area-inset-bottom,0px)] shadow-[0_-4px_16px_rgba(43,27,23,0.04)]">
+    <div class="grid grid-cols-4 max-w-md mx-auto h-16">
+      <!-- Nav tab items -->
+    </div>
+  </nav>
+
+</div>
+
+Crucial Layout Mechanics Included:
+
+    Dynamic Viewport Height (min-h-[100dvh]): Prevents UI jump and overflow glitches when the mobile browser's top URL bar or bottom toolbar collapses/expands.
+    Bottom Clearance (pb-24 sm:pb-12): When using position: fixed for mobile bottom navigation, page content needs clearance at the bottom of <main> (pb-24 or pb-28) so that the last card or button can be scrolled completely into view.
+    Responsive Width Alignment (max-w-2xl on content, max-w-4xl on header): Keeps the header spacious and balanced on tablet/desktop while maintaining an optimal ~680px line length for literary readability in the definition view.
