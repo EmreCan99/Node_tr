@@ -19,6 +19,8 @@ function App() {
   // to use later in a fetch
   const [loading, setLoading] = useState(true)
 
+  // Api Check
+
   useEffect(() => {
     fetch(`${API_URL}/api/check`)
       .then((res) => res.json())

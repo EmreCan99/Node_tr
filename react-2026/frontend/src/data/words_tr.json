@@ -1,0 +1,97 @@
+[
+    {
+        "id": 0,
+        "word": "",
+        "normalized_word": "",
+        "part_of_speech": "",
+        "phonetic": "",
+        "senses": [
+            {
+                "sense_id": 100,
+                "definition_tr": "",
+                "translations_en": [
+                    ""
+                ],
+                "example_tr": "",
+                "example_en": ""
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "word": "elma",
+        "normalized_word": "elma",
+        "part_of_speech": "isim",
+        "phonetic": "",
+        "senses": [
+            {
+                "sense_id": 101,
+                "definition_tr": "Gülgillerden, çiçekleri pembe veya beyaz bir ağaç ve bu ağacın kabuğu parlak, sert, kırmızı, sarı ve yeşil renklerde olabilen, kokulu, tadı ekşi veya tatlı meyvesi.",
+                "translations_en": [
+                    "apple"
+                ],
+                "example_tr": "Her sabah kahvaltıdan sonra bir yeşil elma yerim.",
+                "example_en": "I eat a green apple every morning after breakfast."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "word": "ışık",
+        "normalized_word": "isik",
+        "part_of_speech": "isim",
+        "phonetic": "",
+        "senses": [
+            {
+                "sense_id": 201,
+                "definition_tr": "Cisimleri görmeyi, renkleri ayırt etmeyi sağlayan fiziksel enerji, erke, ziya, nur.",
+                "translations_en": [
+                    "light",
+                    "illumination"
+                ],
+                "example_tr": "Odaya güneş ışığı girince her yer aydınlandı.",
+                "example_en": "When sunlight entered the room, everything lit up."
+            },
+            {
+                "sense_id": 202,
+                "definition_tr": "Aydınlatmaya yarayan araç, lamba.",
+                "translations_en": [
+                    "lamp",
+                    "light source"
+                ],
+                "example_tr": "Çıkarken koridorun ışığını kapatmayı unutma.",
+                "example_en": "Don't forget to turn off the hallway light when leaving."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "word": "oyun",
+        "normalized_word": "oyun",
+        "part_of_speech": "isim",
+        "phonetic": "/oˈjun/",
+        "senses": [
+            {
+                "sense_id": 301,
+                "definition_tr": "Yetenek ve zekâ geliştirici, belli kuralları olan, iyi vakit geçirmeye yarayan eğlence.",
+                "translations_en": [
+                    "game",
+                    "play"
+                ],
+                "example_tr": "Çocuklar bahçede saklambaç oyunu oynuyor.",
+                "example_en": "The children are playing hide-and-seek in the garden."
+            },
+            {
+                "sense_id": 302,
+                "definition_tr": "Tiyatro veya sinemada sanatçının rolünü yorumlama biçimi, piyes.",
+                "translations_en": [
+                    "play",
+                    "performance",
+                    "act"
+                ],
+                "example_tr": "Bu akşam şehir tiyatrosunda yeni bir oyun sahneleniyor.",
+                "example_en": "A new play is being staged at the city theater tonight."
+            }
+        ]
+    }
+]
