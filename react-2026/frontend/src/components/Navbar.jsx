@@ -23,9 +23,10 @@ export default function Navbar(props) {
                             {props.languageSelect === "english" ? "Discover" : "Keşfet"}
                         </button>
                     </li>
-                    <li data-element="nav-item-poems">
-                        <button type="button" onClick={() => props.setWhichPage("Poems")}>
-                            {props.languageSelect === "english" ? "Poems" : "Şiir"}
+                    <li data-element="nav-item-puzzles" data-page={props.whichPage === "Puzzles"}
+                        className={`pb-0.5 transition-colors ${activeNavClasses}`}>
+                        <button type="button" onClick={() => props.setWhichPage("Puzzles")}>
+                            {props.languageSelect === "english" ? "Puzzles" : "Bulmacalar"}
                         </button>
                     </li>
                 </ul>
