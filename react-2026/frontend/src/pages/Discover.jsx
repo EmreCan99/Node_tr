@@ -17,7 +17,7 @@ export default function Discover() {
     const NODE_API_URL = import.meta.env.NODE_API_URL || "http://localhost:3001";
 
     try {
-        const res = await fetch(`${API_URL}/api/chat`, {
+        const res = await fetch(`${NODE_API_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
