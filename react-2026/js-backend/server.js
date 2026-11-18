@@ -7,6 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const PORT = process.env.PORT || 3001;
+
  
 const SYSTEM_PROMPT = `You are a Turkish example sentence generator. 
 Given a single Turkish word, output ONLY one natural, simple Turkish sentence demonstrating its everyday usage.
@@ -30,7 +32,7 @@ Output: Her sabah parkta yarım saat koşuyor.`
 
 // 1. Health check route (visit http://localhost:3001/api/check in your browser to test)
 app.get("/api/check", (req, res) => {
-    console.log(SYSTEM_PROMPT);
+    console.log("logging the server.js/");
     res.send("js-backend alive");
 });
 
@@ -70,8 +72,6 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log("JS backend running on http://localhost:3001");
 });
-
-app.listen(3001, () => console.log("JS backend running on http://localhost:3001"));
